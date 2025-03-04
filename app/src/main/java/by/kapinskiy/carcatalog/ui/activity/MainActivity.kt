@@ -45,5 +45,10 @@ class MainActivity : AppCompatActivity() {
 
 
         bottomNav.setupWithNavController(navController)
+
+/*        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            Log.e("CRASH", "Uncaught Exception in thread ${thread.name}", throwable)
+        }*/
+
     }
 }

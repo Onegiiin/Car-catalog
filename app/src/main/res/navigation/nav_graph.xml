@@ -7,8 +7,22 @@
     <fragment
         android:id="@+id/catalogFragment"
         android:name="by.kapinskiy.carcatalog.ui.fragment.CatalogFragment"
-        android:label="Catalog"
-        tools:layout="@layout/fragment_catalog" />
+        android:label="Catalog">
+
+        <action
+            android:id="@+id/action_catalogFragment_to_carDetailFragment"
+            app:destination="@id/carDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/carDetailFragment"
+        android:name="by.kapinskiy.carcatalog.ui.fragment.CarDetailFragment"
+        android:label="Car Detail">
+        <argument
+            android:name="car"
+            app:argType="by.kapinskiy.carcatalog.model.Car"
+            app:nullable="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/favoritesFragment"
@@ -34,9 +48,8 @@
         android:label="Profile">
         <action
             android:id="@+id/action_profileViewFragment_to_profileEditFragment"
-            app:destination="@id/profileEditFragment"/>
+            app:destination="@id/profileEditFragment" />
     </fragment>
-
 
 
     <fragment
@@ -45,7 +58,7 @@
         android:label="Edit Profile">
         <action
             android:id="@+id/action_profileEditFragment_to_profileViewFragment"
-            app:destination="@id/profileViewFragment"/>
+            app:destination="@id/profileViewFragment" />
     </fragment>
 
 

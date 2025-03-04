@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <ImageButton
+        android:id="@+id/backToCatalogButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_return"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="Back"/>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/carImageViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:padding="16dp" />
+
+
+    <!-- Car details -->
+    <TextView
+        android:id="@+id/carDetailTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingTop="8dp"/>
+
+    <TextView
+        android:id="@+id/carDetailPriceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:id="@+id/carDetailPowerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:id="@+id/carDetailTorqueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:id="@+id/carDetailDrivetrainTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:id="@+id/carDetailTransmissionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:id="@+id/carDetailEngineVolumeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+    <TextView
+        android:id="@+id/carDetailYearTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+
+    <TextView
+        android:id="@+id/carDetailAccelerationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingTop="4dp"/>
+
+</LinearLayout>
+
