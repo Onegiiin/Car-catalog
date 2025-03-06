@@ -16,6 +16,14 @@
         android:contentDescription="Back"/>
 
 
+    <ImageButton
+        android:id="@+id/likeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        android:src="@drawable/ic_favorite_empty" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/carImageViewPager"
         android:layout_width="match_parent"
@@ -25,7 +33,6 @@
         android:padding="16dp" />
 
 
-    <!-- Car details -->
     <TextView
         android:id="@+id/carDetailTitleTextView"
         android:layout_width="match_parent"

@@ -28,7 +28,11 @@
         android:id="@+id/favoritesFragment"
         android:name="by.kapinskiy.carcatalog.ui.fragment.FavoritesFragment"
         android:label="Favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites">
+    <action
+        android:id="@+id/action_favoriteFragment_to_carDetailFragment"
+        app:destination="@id/carDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/splashFragment"

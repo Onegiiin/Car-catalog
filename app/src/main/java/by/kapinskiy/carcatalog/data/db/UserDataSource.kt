@@ -11,6 +11,9 @@ class UserDataSource @Inject constructor(
     private val firestore: FirebaseFirestore
 ) {
 
+    fun getCurrentUserId(): String? {
+        return auth.currentUser?.uid
+    }
 
     suspend fun getUserProfile(): UserProfile? {
         val user = auth.currentUser
@@ -19,8 +22,6 @@ class UserDataSource @Inject constructor(
             doc.toObject(UserProfile::class.java)
         }
     }
-
-
 
     suspend fun saveUserProfile(userProfile: UserProfile) {
         val user = auth.currentUser

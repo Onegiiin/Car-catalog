@@ -17,5 +17,6 @@ data class Car(
     val acceleration: Double = 0.0,
     val transmission: String = "",
     val engine: String = "",
-    val year: Int = 0
+    val year: Int = 0,
+    var isFavorite: Boolean = false
 ) : Parcelable

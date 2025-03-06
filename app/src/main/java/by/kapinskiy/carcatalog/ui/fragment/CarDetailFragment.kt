@@ -2,22 +2,31 @@ package by.kapinskiy.carcatalog.ui.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kapinskiy.carcatalog.R
 import by.kapinskiy.carcatalog.model.Car
+import by.kapinskiy.carcatalog.ui.viewmodel.FavoritesViewModel
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+
+
 @AndroidEntryPoint
 class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
+
+    private val viewModel: FavoritesViewModel by viewModels()
+    private lateinit var likeButton: ImageButton
+    private lateinit var car: Car
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val car: Car = arguments?.getParcelable("car") ?: return
+        car = arguments?.getParcelable("car") ?: return
+        likeButton = view.findViewById(R.id.likeButton)
 
         val carTitleTextView: TextView = view.findViewById(R.id.carDetailTitleTextView)
         val carPriceTextView: TextView = view.findViewById(R.id.carDetailPriceTextView)
@@ -39,6 +48,7 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
         carTransmissionTextView.text = "Transmission: ${car.transmission}"
         carEngineVolumeTextView.text = "Engine: ${car.engine}"
         carYearTextView.text = "Year: ${car.year}"
+        updateLikeIcon(car.isFavorite)
 
         val imageAdapter = CarImageAdapter(car.images)
         viewPager.adapter = imageAdapter
@@ -47,5 +57,21 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
         backButton.setOnClickListener {
             findNavController().navigateUp()
         }
+
+        viewModel.setInitialFavoriteState(car.isFavorite)
+
+        viewModel.favoriteState.observe(viewLifecycleOwner) { isFavorite ->
+            updateLikeIcon(isFavorite)
+        }
+
+        likeButton.setOnClickListener {
+            viewModel.toggleFavorite(car)
+        }
+    }
+
+    private fun updateLikeIcon(isFavorite: Boolean) {
+        likeButton.setImageResource(
+            if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_empty
+        )
     }
 }

@@ -1,8 +1,10 @@
 package by.kapinskiy.carcatalog
 
+
 import android.app.Application
 import by.kapinskiy.carcatalog.data.UserRepository
 import by.kapinskiy.carcatalog.data.db.AuthDataSource
+import by.kapinskiy.carcatalog.data.db.FavoritesDataSource
 import by.kapinskiy.carcatalog.data.db.UserDataSource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,6 +37,14 @@ object AppModule {
         firebaseFirestore: FirebaseFirestore
     ): AuthDataSource {
         return AuthDataSource(firebaseAuth, firebaseFirestore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavoritesDataSource(
+        firebaseFirestore: FirebaseFirestore
+    ): FavoritesDataSource {
+        return FavoritesDataSource(firebaseFirestore)
     }
 
     @Provides
