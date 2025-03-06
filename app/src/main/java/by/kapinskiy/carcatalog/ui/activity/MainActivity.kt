@@ -2,22 +2,15 @@ package by.kapinskiy.carcatalog.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import by.kapinskiy.carcatalog.R
-import by.kapinskiy.carcatalog.data.UserRepository
-import by.kapinskiy.carcatalog.data.db.AuthDataSource
 
 import by.kapinskiy.carcatalog.ui.viewmodel.UserAuthViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (!authViewModel.isUserLoggedIn()) {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, AuthActivity::class.java))
             finish()
             return
         }
