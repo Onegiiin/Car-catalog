@@ -16,6 +16,7 @@ import by.kapinskiy.carcatalog.R
 import by.kapinskiy.carcatalog.model.UserProfile
 import by.kapinskiy.carcatalog.ui.viewmodel.UserViewModel
 import by.kapinskiy.carcatalog.util.Validator
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 @AndroidEntryPoint
@@ -40,21 +41,24 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val genderSpinner: Spinner = view.findViewById(R.id.genderSpinner)
+        val genderOptions = listOf("Male", "Female", "Undefined")
+
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, genderOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        genderSpinner.adapter = adapter
+
         fullNameEditText = view.findViewById(R.id.fullNameEditText)
         descriptionEditText = view.findViewById(R.id.descriptionEditText)
         phoneNumberEditText = view.findViewById(R.id.phoneNumberEditText)
         addressEditText = view.findViewById(R.id.addressEditText)
         profileImageUrlEditText = view.findViewById(R.id.imageUrlEditText)
-        genderSpinner = view.findViewById(R.id.genderSpinner)
         occupationEditText = view.findViewById(R.id.occupationEditText)
         interestsEditText = view.findViewById(R.id.interestsEditText)
         saveButton = view.findViewById(R.id.saveButton)
         birthDateTextView = view.findViewById(R.id.birthDateTextView)
 
-        val genderOptions = listOf("Male", "Female")
-        val genderAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, genderOptions)
-        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        genderSpinner.adapter = genderAdapter
 
         birthDateTextView.setOnClickListener {
             val calendar = Calendar.getInstance()

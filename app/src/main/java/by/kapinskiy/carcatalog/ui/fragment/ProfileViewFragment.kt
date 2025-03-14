@@ -10,11 +10,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import by.kapinskiy.carcatalog.R
 import by.kapinskiy.carcatalog.ui.activity.AuthActivity
 import by.kapinskiy.carcatalog.ui.viewmodel.UserAuthViewModel
 import by.kapinskiy.carcatalog.ui.viewmodel.UserViewModel
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

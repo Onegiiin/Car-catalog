@@ -2,6 +2,7 @@ package by.kapinskiy.carcatalog.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -39,9 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav.setupWithNavController(navController)
 
-/*        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            Log.e("CRASH", "Uncaught Exception in thread ${thread.name}", throwable)
-        }*/
+
+        /*        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+                    Log.e("CRASH", "Uncaught Exception in thread ${thread.name}", throwable)
+                }*/
 
     }
 }

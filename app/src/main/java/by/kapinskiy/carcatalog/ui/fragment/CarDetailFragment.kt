@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -33,9 +34,12 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
         val carPowerTextView: TextView = view.findViewById(R.id.carDetailPowerTextView)
         val carTorqueTextView: TextView = view.findViewById(R.id.carDetailTorqueTextView)
         val carDrivetrainTextView: TextView = view.findViewById(R.id.carDetailDrivetrainTextView)
-        val carAccelerationTextView: TextView = view.findViewById(R.id.carDetailAccelerationTextView)
-        val carTransmissionTextView: TextView = view.findViewById(R.id.carDetailTransmissionTextView)
-        val carEngineVolumeTextView: TextView = view.findViewById(R.id.carDetailEngineVolumeTextView)
+        val carAccelerationTextView: TextView =
+            view.findViewById(R.id.carDetailAccelerationTextView)
+        val carTransmissionTextView: TextView =
+            view.findViewById(R.id.carDetailTransmissionTextView)
+        val carEngineVolumeTextView: TextView =
+            view.findViewById(R.id.carDetailEngineVolumeTextView)
         val carYearTextView: TextView = view.findViewById(R.id.carDetailYearTextView)
         val viewPager: ViewPager2 = view.findViewById(R.id.carImageViewPager)
 
@@ -70,8 +74,13 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
     }
 
     private fun updateLikeIcon(isFavorite: Boolean) {
-        likeButton.setImageResource(
+        val iconRes =
             if (isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_empty
-        )
+        val colorRes = if (isFavorite) R.color.colorActiveIcon else R.color.colorInactiveIcon
+
+        likeButton.setImageResource(iconRes)
+        likeButton.setColorFilter(ContextCompat.getColor(requireContext(), colorRes))
+
     }
+
 }

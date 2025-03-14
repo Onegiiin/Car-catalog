@@ -31,6 +31,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val emailEditText = view.findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = view.findViewById<EditText>(R.id.passwordEditText)
         val registerButton = view.findViewById<TextView>(R.id.registerButton)
+        val loginLink = view.findViewById<TextView>(R.id.loginLink)
 
 
         registerButton.setOnClickListener {
@@ -47,6 +48,10 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().navigateUp()
+        }
+
+        loginLink.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
 
         viewLifecycleOwner.lifecycleScope.launch {

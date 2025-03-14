@@ -12,7 +12,7 @@
 
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment"/> <!-- УБРАЛ popUpTo -->
+            app:destination="@id/registerFragment"/>
     </fragment>
 
 
