@@ -42,6 +42,10 @@ class ProfileViewFragment : Fragment(R.layout.fragment_profile_view) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bottomNavView: BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
+        bottomNavView.menu.findItem(R.id.profileFragment)?.isChecked = true
+
+
         userNameTextView = view.findViewById(R.id.userNameTextView)
         birthDateTextView = view.findViewById(R.id.birthDateTextView)
         descriptionTextView = view.findViewById(R.id.descriptionTextView)

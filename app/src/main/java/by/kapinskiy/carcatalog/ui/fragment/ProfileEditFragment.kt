@@ -41,6 +41,9 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bottomNavView: BottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation)
+        bottomNavView.menu.findItem(R.id.profileFragment)?.isChecked = true
+
         val genderSpinner: Spinner = view.findViewById(R.id.genderSpinner)
         val genderOptions = listOf("Male", "Female", "Undefined")
 
